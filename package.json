@@ -1,0 +1,27 @@
+{
+  "name": "find-pid",
+  "version": "0.1.0",
+  "keywords": [
+    "find",
+    "pid",
+    "port"
+  ],
+  "author": "luckydrq<drqzju@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:luckydrq/find-pid.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -t 3000 test/*.test.js",
+    "ci": "istanbul cover _mocha -- -t 3000 test/*.test.js"
+  },
+  "dependencies": {
+    "mz": "^2.6.0"
+  },
+  "devDependencies": {
+    "detect-port": "^1.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  }
+}
