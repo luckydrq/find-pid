@@ -7,8 +7,8 @@ node_js:
   - '6'
   - '7'
 before_install:
-  - apt-get -qq update
-  - apt-get install -y net-tools
+  - sudo apt-get -qq update
+  - sudo apt-get install -y net-tools
 install:
   - npm i npminstall && npminstall
 script:
