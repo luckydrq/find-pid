@@ -1,5 +1,6 @@
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
+[![build status][appveyor-image]][appveyor-url]
 [![Test coverage][codecov-image]][codecov-url]
 [![David deps][david-image]][david-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
@@ -11,6 +12,8 @@ Cross-platform api of finding pid under specified conditions.
 [npm-url]: https://npmjs.org/package/find-pid
 [travis-image]: https://img.shields.io/travis/luckydrq/find-pid/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/luckydrq/find-pid
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/c8wxxgyd62cx1ejs?svg=true
+[appveyor-url]: https://travis-ci.org/luckydrq/find-pid
 [codecov-image]: https://codecov.io/gh/luckydrq/find-pid/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/luckydrq/find-pid
 [david-image]: https://img.shields.io/david/luckydrq/find-pid.svg?style=flat-square
