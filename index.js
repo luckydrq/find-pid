@@ -34,7 +34,15 @@ function winFind(port, cb) {
 function macFind(port, cb) {
   exec(`lsof -i tcp:${port}`)
     .then(getPID(cb))
-    .catch(cb);
+    .catch(e => {
+      // http://stackoverflow.com/questions/29841984/non-zero-exit-code-for-lsof
+      if (e.code === 1) {
+        // not found any results
+        cb();
+      } else {
+        cb(e);
+      }
+    });
 }
 
 function linuxFind(port, cb) {

@@ -35,4 +35,11 @@ describe('test/index.test.js', () => {
       }
     });
   });
+
+  it('should be null if not found', done => {
+    byPort(12345, (err, pid) => {
+      assert(pid == null);
+      done(err);
+    });
+  });
 });
