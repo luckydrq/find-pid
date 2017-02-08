@@ -6,8 +6,10 @@ node_js:
   - '5'
   - '6'
   - '7'
+before_install:
+  - apt-get -qq update
+  - apt-get install -y net-tools
 install:
-  - apt-get install net-tools
   - npm i npminstall && npminstall
 script:
   - npm run ci
