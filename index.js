@@ -28,27 +28,19 @@ function winFind(port, cb) {
   // @see http://stackoverflow.com/questions/15952663/find-pid-of-process-that-use-a-port-on-windows
   exec(`netstat -aon | find "${port}"`)
     .then(getPID(cb))
-    .catch(cb);
+    .catch(handleError(cb));
 }
 
 function macFind(port, cb) {
   exec(`lsof -i tcp:${port}`)
     .then(getPID(cb))
-    .catch(e => {
-      // http://stackoverflow.com/questions/29841984/non-zero-exit-code-for-lsof
-      if (e.code === 1) {
-        // not found any results
-        cb();
-      } else {
-        cb(e);
-      }
-    });
+    .catch(handleError(cb));
 }
 
 function linuxFind(port, cb) {
   exec(`netstat -nlp | grep :${port}`)
     .then(getPID(cb))
-    .catch(cb);
+    .catch(handleError(cb));
 }
 
 function getPID(cb) {
@@ -76,6 +68,19 @@ function getPID(cb) {
     } else {
       // no process listening at the specified port
       cb();
+    }
+  };
+}
+
+function handleError(cb) {
+  return function(err) {
+    // netstate: http://stackoverflow.com/questions/21897119/shell-script-how-do-i-determine-if-a-port-is-in-use-e-g-via-netstat
+    // lsof: http://stackoverflow.com/questions/29841984/non-zero-exit-code-for-lsof
+    if (err.code === 1) {
+      // not found any results
+      cb();
+    } else {
+      cb(err);
     }
   };
 }
