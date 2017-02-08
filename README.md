@@ -26,6 +26,9 @@ Cross-platform api of finding pid under specified conditions.
 ## Install
 `$ npm i find-pid`
 
+*Note: For some linux distributions, `netstat` is not available util
+you install `net-tools`, run `sudo apt-get install net-tools`.*
+
 ## Example
 ```js
   const findByPort = require('find-pid').byPort;
